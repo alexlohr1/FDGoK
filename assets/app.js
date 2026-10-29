@@ -24,12 +24,6 @@ document.querySelectorAll('.path-card,.feature-shell').forEach(card=>{card.addEv
 
 // V8 image loader: local files override curated stock; placeholders remain if neither loads.
 const stockImages={
-  "result-01-before.jpg":"https://images.pexels.com/photos/6528868/pexels-photo-6528868.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  "result-01-after.jpg":"https://images.pexels.com/photos/6528850/pexels-photo-6528850.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  "result-02-before.jpg":"https://images.pexels.com/photos/7789704/pexels-photo-7789704.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  "result-02-after.jpg":"https://images.pexels.com/photos/7298650/pexels-photo-7298650.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  "result-03-before.jpg":"https://images.pexels.com/photos/6528850/pexels-photo-6528850.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  "result-03-after.jpg":"https://images.pexels.com/photos/7479536/pexels-photo-7479536.jpeg?auto=compress&cs=tinysrgb&w=1400",
   "about-01.jpg":"https://images.pexels.com/photos/5622239/pexels-photo-5622239.jpeg?auto=compress&cs=tinysrgb&w=1800",
   "financing-01.jpg":"https://images.pexels.com/photos/6812577/pexels-photo-6812577.jpeg?auto=compress&cs=tinysrgb&w=1800",
   "home-01.jpg":"https://images.pexels.com/photos/5622233/pexels-photo-5622233.jpeg?auto=compress&cs=tinysrgb&w=1800",
@@ -67,7 +61,7 @@ document.querySelectorAll('[data-image]').forEach(el=>{
   const apply=src=>{el.style.backgroundImage=`url("${src}")`;el.classList.add('image-loaded')};
   const img=new Image();
   img.onload=()=>apply(local);
-  img.onerror=()=>{const remote=stockImages[el.dataset.image];if(remote){const fallback=new Image();fallback.onload=()=>apply(remote);fallback.src=remote;}};
+  img.onerror=()=>{const remote=el.dataset.image.startsWith("result-")?null:stockImages[el.dataset.image];if(remote){const fallback=new Image();fallback.onload=()=>apply(remote);fallback.src=remote;}else{console.warn("Required local image missing:",local);}};
   img.src=local;
 });
 
