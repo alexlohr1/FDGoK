@@ -54,6 +54,96 @@
       "source": "/whitening",
       "destination": "/services/whitening.html",
       "permanent": true
+    },
+    {
+      "source": "/dental-implant",
+      "destination": "/services/dental-implants.html",
+      "permanent": true
+    },
+    {
+      "source": "/dental-implants",
+      "destination": "/services/dental-implants.html",
+      "permanent": true
+    },
+    {
+      "source": "/financing",
+      "destination": "/financing.html",
+      "permanent": true
+    },
+    {
+      "source": "/dentures",
+      "destination": "/services/dentures.html",
+      "permanent": true
+    },
+    {
+      "source": "/smile-design",
+      "destination": "/services/smile-design.html",
+      "permanent": true
+    },
+    {
+      "source": "/oral-surgery",
+      "destination": "/services/oral-surgery.html",
+      "permanent": true
+    },
+    {
+      "source": "/bridges-crowns",
+      "destination": "/services/bridges-crowns.html",
+      "permanent": true
+    },
+    {
+      "source": "/bridges-and-crowns",
+      "destination": "/services/bridges-crowns.html",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/results",
+      "destination": "/results.html",
+      "permanent": true
+    },
+    {
+      "source": "/dental-implant/",
+      "destination": "/services/dental-implants.html",
+      "permanent": true
+    },
+    {
+      "source": "/financing/",
+      "destination": "/financing.html",
+      "permanent": true
+    },
+    {
+      "source": "/dentures/",
+      "destination": "/services/dentures.html",
+      "permanent": true
+    },
+    {
+      "source": "/smile-design/",
+      "destination": "/services/smile-design.html",
+      "permanent": true
+    },
+    {
+      "source": "/oral-surgery/",
+      "destination": "/services/oral-surgery.html",
+      "permanent": true
+    },
+    {
+      "source": "/bridges-crowns/",
+      "destination": "/services/bridges-crowns.html",
+      "permanent": true
     }
   ]
 }
