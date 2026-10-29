@@ -78,7 +78,32 @@ const needCopy={
 };
 document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{const box=document.querySelector('.need-intro');if(!box)return;const lang=document.documentElement.lang==='es'?'es':'en';const [h,p]=needCopy[lang][btn.dataset.filter]||needCopy[lang].all;box.querySelector('h2').textContent=h;box.querySelector('p').textContent=p;}));
 
-// Demo appointment form: validates without pretending to submit to a backend.
-document.querySelectorAll('[data-demo-form]').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;let n=form.querySelector('.form-status');if(!n){n=document.createElement('div');n.className='form-status field-full';form.append(n)}n.textContent=document.documentElement.lang==='es'?'Formulario listo. Conecta este formulario al sistema de citas antes de publicar.':'Form is ready. Connect this request form to the practice appointment system before launch.';}));
+// Temporary email-draft appointment requests. No data is transmitted by the website.
+document.querySelectorAll('[data-email-request]').forEach(form=>form.addEventListener('submit',event=>{
+  event.preventDefault();
+  if(!form.reportValidity())return;
+  const es=document.documentElement.lang==='es';
+  const data=new FormData(form);
+  const get=key=>String(data.get(key)||'').trim().replace(/[\r\n]+/g,' ');
+  const subject=es?'Solicitud de cita - Florida Dental Group of Kendall':'Appointment request - Florida Dental Group of Kendall';
+  const lines=es?[
+    'Hola, quisiera solicitar una cita.','',
+    'Nombre: '+get('name'),'Teléfono: '+get('phone'),'Correo: '+get('email'),
+    'Servicio de interés: '+get('service'),'Tipo de paciente: '+get('patient_type'),
+    'Día preferido: '+get('preferred_day'),'Horario preferido: '+get('preferred_time'),
+    'Nota general (sin información médica): '+get('message'),'',
+    'Entiendo que esta solicitud no confirma una cita.'
+  ]:[
+    'Hello, I would like to request an appointment.','',
+    'Name: '+get('name'),'Phone: '+get('phone'),'Email: '+get('email'),
+    'Service of interest: '+get('service'),'Patient type: '+get('patient_type'),
+    'Preferred day: '+get('preferred_day'),'Preferred time: '+get('preferred_time'),
+    'General note (no medical information): '+get('message'),'',
+    'I understand this request does not confirm an appointment.'
+  ];
+  const status=form.querySelector('[data-mail-status]');
+  if(status)status.textContent=es?'Se abrirá un borrador. Debe pulsar Enviar en su aplicación de correo. Si no se abre, llame al (305) 735-2888.':'Your email draft should open. You must press Send in your email app. If nothing opens, call (305) 735-2888.';
+  window.location.href='mailto:info@floridadentalgroup.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
+}));
 // V7 accessible before/after comparison
  document.querySelectorAll('.ba-slider').forEach(slider=>{const range=slider.querySelector('.ba-range');range?.addEventListener('input',()=>slider.style.setProperty('--pos',`${range.value}%`));});

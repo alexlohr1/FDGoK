@@ -1,0 +1,59 @@
+{
+  "redirects": [
+    {
+      "source": "/vk2/oral-surgery/",
+      "destination": "/services/oral-surgery.html",
+      "permanent": true
+    },
+    {
+      "source": "/vk2/veneers/",
+      "destination": "/services/veneers.html",
+      "permanent": true
+    },
+    {
+      "source": "/vk2/budgeting-for-dental-treatment-costs/",
+      "destination": "/financing.html",
+      "permanent": true
+    },
+    {
+      "source": "/vk2/services/working-hours/",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/emergency",
+      "destination": "/services/emergency.html",
+      "permanent": true
+    },
+    {
+      "source": "/endodontics",
+      "destination": "/services/endodontics.html",
+      "permanent": true
+    },
+    {
+      "source": "/invisalign",
+      "destination": "/services/invisalign.html",
+      "permanent": true
+    },
+    {
+      "source": "/periodontics",
+      "destination": "/services/periodontics.html",
+      "permanent": true
+    },
+    {
+      "source": "/preventive",
+      "destination": "/services/preventive.html",
+      "permanent": true
+    },
+    {
+      "source": "/veneers",
+      "destination": "/services/veneers.html",
+      "permanent": true
+    },
+    {
+      "source": "/whitening",
+      "destination": "/services/whitening.html",
+      "permanent": true
+    }
+  ]
+}
